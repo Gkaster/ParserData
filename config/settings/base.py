@@ -79,6 +79,8 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     "site_dashboard.users",
     # Your stuff: custom apps go here
+    # "site_dashboard.scraper",
+    # "site_dashboard.scraping.crawler"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

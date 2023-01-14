@@ -19,6 +19,7 @@ urlpatterns = [
     path("users/", include("site_dashboard.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     # Your stuff: custom urls includes go here
+    # path("dash/crawl/", include('site_dashboard.scraper.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     # Static file serving when using Gunicorn + Uvicorn for local web socket development
@@ -36,6 +37,7 @@ urlpatterns += [
         SpectacularSwaggerView.as_view(url_name="api-schema"),
         name="api-docs",
     ),
+    # path("api/crawl/", include('site_dashboard.scraper.urls')),
 ]
 
 if settings.DEBUG:

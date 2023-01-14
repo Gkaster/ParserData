@@ -328,6 +328,7 @@ tags
 
 ### Project template
 site_dashboard/media/
+review_code_feature/*
 
 .pytest_cache/
 .ipython/
