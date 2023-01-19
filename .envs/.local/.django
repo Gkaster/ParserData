@@ -12,3 +12,12 @@ REDIS_URL=redis://redis:6379/0
 # Flower
 CELERY_FLOWER_USER=debug
 CELERY_FLOWER_PASSWORD=debug
+
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=site_dashboard
+POSTGRES_USER=debug
+POSTGRES_PASSWORD=debug
+# DATABASE_URL=postgres://postgres:postgres@localhost:5432/postgres

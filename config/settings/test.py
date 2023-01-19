@@ -1,9 +1,10 @@
 """
 With these settings, tests run faster.
 """
+from config.settings.components import env
 
-from .base import *  # noqa
-from .base import env
+# from .base import *  # noqa
+# from .base import env
 
 # GENERAL
 # ------------------------------------------------------------------------------

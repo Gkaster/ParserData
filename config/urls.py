@@ -61,7 +61,8 @@ if settings.DEBUG:
         ),
         path("500/", default_views.server_error),
     ]
-    if "debug_toolbar" in settings.INSTALLED_APPS:
-        import debug_toolbar
+    if "debug_toolbar" in settings.INSTALLED_APPS:  # pragma: no cover
+        import debug_toolbar  # noqa: WPS433
+        from django.conf.urls.static import static  # noqa: WPS433
 
         urlpatterns = [path("__debug__/", include(debug_toolbar.urls))] + urlpatterns
