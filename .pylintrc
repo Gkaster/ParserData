@@ -1,7 +1,7 @@
 [MASTER]
 load-plugins=pylint_django, pylint_celery
 # TODO: check
-# django-settings-module=config.settings.local
+# django-settings-module=config.settings.environments.local
 django-settings-module=config.settings
 [FORMAT]
 max-line-length=120

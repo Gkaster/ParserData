@@ -1,7 +1,8 @@
 """
 With these settings, tests run faster.
 """
-from config.settings.components import env
+# from config.settings.components import env
+from config.settings.components import config
 
 # from .base import *  # noqa
 # from .base import env
@@ -9,7 +10,7 @@ from config.settings.components import env
 # GENERAL
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#secret-key
-SECRET_KEY = env(
+SECRET_KEY = config(
     "DJANGO_SECRET_KEY",
     default="vCUmNFKb28nJBt3gS5YlUCjCmKovVh3Oasc12t0XbKYEKEid3WhojyMau8KUhtzr",
 )
