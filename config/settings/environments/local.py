@@ -63,14 +63,22 @@ DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK": "config.settings.environments.local._custom_show_toolbar",
 }
 # https://django-debug-toolbar.readthedocs.io/en/latest/installation.html#internal-ips
-INTERNAL_IPS = ["127.0.0.1", "10.0.2.2"]
-# TODO: change default var
-# if env("USE_DOCKER") == "yes":
+# https://django-debug-toolbar.readthedocs.io/en/stable/installation.html#configure-internal-ips
+INTERNAL_IPS = []
 if config("USE_DOCKER") == "yes":
-    import socket
+    try:  # This might fail on some OS
+        import socket
 
-    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+        hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+        INTERNAL_IPS += [".".join(ip.split(".")[:-1] + ["1"]) for ip in ips]
+
+        # INTERNAL_IPS = [
+        #     '{0}.1'.format(ip[:ip.rfind('.')])
+        #     for ip in socket.gethostbyname_ex(socket.gethostname())[2]
+        # ]
+    except OSError:  # pragma: no cover
+        INTERNAL_IPS = []
+INTERNAL_IPS += ["127.0.0.1", "10.0.2.2"]
 
 # django-extensions
 # ------------------------------------------------------------------------------
