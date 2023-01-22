@@ -3,6 +3,45 @@
 # from config.settings.components import env
 from config.settings.components import config
 
+r"""
+Local psql settings
+# https://www.digitalocean.com/community/tutorials/
+how-to-use-postgresql-with-your-django-application-on-ubuntu-20-04
+
+sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+
+sudo -u postgres psql
+CREATE DATABASE site_dashboard;
+CREATE USER debug WITH PASSWORD 'debug';
+ALTER ROLE debug SET client_encoding TO 'utf8';
+ALTER ROLE debug SET default_transaction_isolation TO 'read committed';
+ALTER ROLE debug SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE site_dashboard TO debug;
+\q
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "myproject",
+        "USER": "myprojectuser",
+        "PASSWORD": "password",
+        "HOST": "localhost",
+        "PORT": "",
+    }
+}
+
+
+pycharm
+HOST: localhost
+DBMS: PostgreSQL (ver. 15.1 (Debian 15.1-1.pgdg110+1))
+Case sensitivity: plain=lower, delimited=exact
+Driver: PostgreSQL JDBC Driver (ver. 42.5.0, JDBC4.2)
+
+Ping: 32 ms
+SSL: yes
+"""
+
 # ------------------------------------------------------------------------------
 # BASE
 # ------------------------------------------------------------------------------
@@ -23,6 +62,7 @@ from config.settings.components import config
 #         },
 #     },
 # }
+
 
 DATABASES = {
     "default": {
