@@ -11,9 +11,7 @@ To change settings file:
 import os
 
 import django_stubs_ext
-from split_settings.tools import include
-
-# , optional
+from split_settings.tools import include, optional
 
 # Monkeypatching Django, so stubs will work for all generics,
 # see: https://github.com/typeddjango/django-stubs
@@ -49,9 +47,9 @@ _base_settings = (
     "components/additional/corsheaders.py",
     # 'components/caches.py',
     # Select the right env:
-    f"environments/{_ENV}.py",
+    # f"environments/{_ENV}.py",
     # Optionally override some settings:
-    # optional('local.py'),
+    optional(f"environments/{_ENV}.py"),
 )
 
 # Include settings:
