@@ -3,6 +3,7 @@ With these settings, tests run faster.
 """
 # from config.settings.components import env
 from config.settings.components import config
+from config.settings.components.templates import TEMPLATES
 
 # from .base import *  # noqa
 # from .base import env
