@@ -1,7 +1,7 @@
 # STORAGE (STATIC / MEDIA / AWS S3)
 # ------------------------------------------------------------------------------
 # from typing import Tuple
-from config.settings.components import APPS_DIR, ROOT_DIR
+from config.settings.components import APPS_DIR, BASE_DIR
 
 # ------------------------------------------------------------------------------
 # BASE
@@ -9,7 +9,7 @@ from config.settings.components import APPS_DIR, ROOT_DIR
 # STATIC
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-root
-STATIC_ROOT = str(ROOT_DIR / "staticfiles")
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
 # https://docs.djangoproject.com/en/dev/ref/settings/#static-url
 STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#std:setting-STATICFILES_DIRS

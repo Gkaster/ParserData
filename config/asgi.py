@@ -15,8 +15,8 @@ from django.core.asgi import get_asgi_application
 
 # This allows easy placement of apps within the interior
 # site_dashboard directory.
-ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent
-sys.path.append(str(ROOT_DIR / "site_dashboard"))
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
+sys.path.append(str(BASE_DIR / "site_dashboard"))
 
 # If DJANGO_SETTINGS_MODULE is unset, default to the local settings
 # TODO: check

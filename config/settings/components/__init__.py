@@ -12,19 +12,19 @@ from decouple import AutoConfig
 # test in cmd:
 # python3 -c "from pathlib import Path; print(Path('./__init__.py').resolve(strict=True).parent.parent.parent.parent)"
 # BASE_DIR = Path(__file__).parent.parent.parent.parent
-ROOT_DIR = Path(__file__).resolve(strict=True).parent.parent.parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent.parent
 # site_dashboard/
-APPS_DIR = ROOT_DIR / "site_dashboard"
+APPS_DIR = BASE_DIR / "site_dashboard"
 # env = environ.Env()
 
 # READ_DOT_ENV_FILE = env.bool("DJANGO_READ_DOT_ENV_FILE", default=False)
 # if READ_DOT_ENV_FILE:
 #     # OS environment variables take precedence over variables from .env
-#     env.read_env(str(ROOT_DIR / ".env"))
+#     env.read_env(str(BASE_DIR / ".env"))
 
 # Loading `.env` files
 # See docs: https://gitlab.com/mkleehammer/autoconfig
-config = AutoConfig(search_path=ROOT_DIR.joinpath(".envs"))
+config = AutoConfig(search_path=BASE_DIR.joinpath(".envs"))
 
 
 # GENERAL
