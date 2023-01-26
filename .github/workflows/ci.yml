@@ -4,6 +4,7 @@ name: CI
 env:
   DOCKER_BUILDKIT: 1
   COMPOSE_DOCKER_CLI_BUILD: 1
+  DJANGO_ENV: "test"
 
 on:
   pull_request:
@@ -54,7 +55,7 @@ jobs:
         run:  docker-compose -f local.yml run --rm django python manage.py migrate
 
       - name: Run Django Tests
-        run:  docker-compose -f local.yml run django pytest
+        run:  docker-compose -f local.yml -e DJANGO_ENV run django pytest
 
       - name: Tear down the Stack
         run:  docker-compose -f local.yml down
